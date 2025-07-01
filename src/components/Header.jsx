@@ -9,9 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { currency, setCurrency } = CryptoState();
 
   const darktheme = createTheme({
     palette: {
@@ -46,6 +48,8 @@ const Header = () => {
                 marginRight: 15,
                 color: "white",
               }}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>

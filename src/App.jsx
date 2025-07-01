@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { HomePage } from "./pages/Homepage";
 import { CoinPage } from "./pages/CoinPage";
 import { Box, makeStyles } from "@mui/material";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 function App() {
   return (
