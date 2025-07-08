@@ -6,21 +6,23 @@ import AliceCarousel from "react-alice-carousel";
 import { styled } from "@mui/material";
 import { Link } from "react-router-dom";
 
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 export const Carousel = () => {
   const [trending, setTrending] = useState([]);
   const { currency, symbol } = CryptoState();
+
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
     setTrending(data);
     console.log(data);
   };
+
   useEffect(() => {
     fetchTrendingCoins();
   }, [currency]);
-
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
 
   const CarouselContainer = styled("div")({
     height: "50%",
