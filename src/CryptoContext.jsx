@@ -8,7 +8,7 @@ export const CryptoContext = ({ children }) => {
   useEffect(() => {
     if (currency === "INR") setSymbol("₹");
     else if (currency === "USD") setSymbol("$");
-    console.log(currency);
+    // console.log(currency);
   }, [currency]);
   return (
     <Crypto.Provider value={{ currency, setCurrency, symbol }}>
